@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/categorias-preguntas-frecuentes",
+      "handler": "categorias-preguntas-frecuentes.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/categorias-preguntas-frecuentes/count",
+      "handler": "categorias-preguntas-frecuentes.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/categorias-preguntas-frecuentes/:id",
+      "handler": "categorias-preguntas-frecuentes.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/categorias-preguntas-frecuentes",
+      "handler": "categorias-preguntas-frecuentes.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/categorias-preguntas-frecuentes/:id",
+      "handler": "categorias-preguntas-frecuentes.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/categorias-preguntas-frecuentes/:id",
+      "handler": "categorias-preguntas-frecuentes.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

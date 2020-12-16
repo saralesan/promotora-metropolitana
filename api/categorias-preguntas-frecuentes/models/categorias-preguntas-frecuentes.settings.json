@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faq_categories",
+  "info": {
+    "name": "Categorías preguntas frecuentes",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "category": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "faq": {
+      "via": "faq_categories",
+      "collection": "preguntas-frecuentes"
+    }
+  }
+}
