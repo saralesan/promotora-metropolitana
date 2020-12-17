@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "atac",
+  "info": {
+    "name": "ATAC",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "atac_category": {
+      "model": "categorias-atac",
+      "via": "atac"
+    }
+  }
+}

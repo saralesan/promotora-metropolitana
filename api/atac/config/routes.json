@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/atacs",
+      "handler": "atac.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/atacs/count",
+      "handler": "atac.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/atacs/:id",
+      "handler": "atac.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/atacs",
+      "handler": "atac.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/atacs/:id",
+      "handler": "atac.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/atacs/:id",
+      "handler": "atac.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
