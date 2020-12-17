@@ -20,8 +20,8 @@
       "required": true
     },
     "faq_categories": {
-      "model": "categorias-preguntas-frecuentes",
-      "via": "faq"
+      "via": "faq",
+      "model": "categorias-preguntas-frecuentes"
     }
   }
 }

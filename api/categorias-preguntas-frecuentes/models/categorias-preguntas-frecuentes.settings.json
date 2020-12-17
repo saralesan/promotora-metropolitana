@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "faq_categories",
   "info": {
-    "name": "Categorías preguntas frecuentes",
+    "name": "Preguntas frecuentes - Categorías",
     "description": ""
   },
   "options": {
@@ -17,8 +17,8 @@
       "unique": true
     },
     "faq": {
-      "via": "faq_categories",
-      "collection": "preguntas-frecuentes"
+      "collection": "preguntas-frecuentes",
+      "via": "faq_categories"
     }
   }
 }
