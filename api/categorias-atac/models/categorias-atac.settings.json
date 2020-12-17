@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "atac_categories",
+  "info": {
+    "name": "ATAC - Categorías",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "category": {
+      "type": "string"
+    },
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "atac": {
+      "via": "atac_category",
+      "collection": "atac"
+    }
+  }
+}
