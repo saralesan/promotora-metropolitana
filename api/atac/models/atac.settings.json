@@ -2,23 +2,33 @@
   "kind": "collectionType",
   "collectionName": "atac",
   "info": {
-    "name": "ATAC",
+    "name": "ATAC ",
     "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "name": {
       "type": "string",
-      "required": true,
-      "unique": false
+      "required": true
     },
-    "atac_category": {
-      "model": "categorias-atac",
-      "via": "atac"
+    "atac_categories": {
+      "type": "component",
+      "repeatable": true,
+      "component": "subcategory.atac-categories",
+      "required": true
+    },
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
     }
   }
 }
