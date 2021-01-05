@@ -83,6 +83,11 @@
     "description": {
       "type": "text",
       "required": true
+    },
+    "atac_solicitudes": {
+      "private": true,
+      "collection": "atac-solicitudes",
+      "via": "user_id"
     }
   }
 }
