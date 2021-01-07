@@ -1,0 +1,26 @@
+{
+  "collectionName": "education_documents",
+  "info": {
+    "name": "Educación documentos",
+    "icon": "file",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "file": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}
