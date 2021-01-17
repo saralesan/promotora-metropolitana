@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/reporte-integrado",
+      "handler": "reporte-integrado.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/reporte-integrado/count",
+      "handler": "reporte-integrado.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/reporte-integrado/:id",
+      "handler": "reporte-integrado.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/reporte-integrado",
+      "handler": "reporte-integrado.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/reporte-integrado/:id",
+      "handler": "reporte-integrado.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/reporte-integrado/:id",
+      "handler": "reporte-integrado.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
