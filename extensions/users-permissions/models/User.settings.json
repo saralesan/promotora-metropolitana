@@ -88,6 +88,10 @@
       "private": true,
       "collection": "atac-solicitudes",
       "via": "user_id"
+    },
+    "sale": {
+      "via": "user",
+      "collection": "ventas"
     }
   }
 }
