@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "integrated_report_data",
+  "info": {
+    "name": "Reporte Integrado Data",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "user_code": {
+      "type": "biginteger"
+    },
+    "name": {
+      "type": "string"
+    },
+    "branch_gct": {
+      "type": "string"
+    },
+    "pdn_new": {
+      "type": "biginteger"
+    },
+    "pdn_new_prev": {
+      "type": "biginteger"
+    },
+    "pdn_total": {
+      "type": "biginteger"
+    },
+    "pdn_canc": {
+      "type": "biginteger"
+    },
+    "pct_effect": {
+      "type": "float"
+    },
+    "avg_prima": {
+      "type": "biginteger"
+    },
+    "goal": {
+      "type": "biginteger"
+    },
+    "integrated_report": {
+      "model": "reporte-integrado",
+      "via": "integrated_report_data"
+    }
+  }
+}

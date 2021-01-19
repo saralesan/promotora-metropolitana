@@ -19,6 +19,10 @@
       ],
       "plugin": "upload",
       "required": true
+    },
+    "integrated_report_data": {
+      "via": "integrated_report",
+      "collection": "reporte-integrado-data"
     }
   }
 }
