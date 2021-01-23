@@ -2,6 +2,14 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/reporte-integrado-data/ranking",
+      "handler": "reporte-integrado-data.findRanking",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/reporte-integrado-data",
       "handler": "reporte-integrado-data.find",
       "config": {
