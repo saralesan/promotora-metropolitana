@@ -90,8 +90,17 @@
       "via": "user_id"
     },
     "sale": {
-      "via": "user",
-      "collection": "ventas"
+      "collection": "ventas",
+      "via": "user"
+    },
+    "photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }
