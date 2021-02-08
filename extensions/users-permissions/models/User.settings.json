@@ -82,7 +82,7 @@
     },
     "description": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "atac_solicitudes": {
       "private": true,
