@@ -5,4 +5,23 @@
  * to customize this model
  */
 
-module.exports = {};
+var pattern = new RegExp('^(https?)://');
+
+module.exports = {
+    lifecycles: {
+        async beforeCreate(data) {
+            if(!pattern.test(data.video_url) && (data.video_url!=null)) {
+                data.video_url = "https://" + data.video_url;
+            }
+        },
+        async beforeUpdate(params, data) {
+            if(!pattern.test(data.video_url)) {
+                data.video_url = "https://" + data.video_url;
+                if(data.video_url === "https://") {
+                    data.video_url = null;
+                }
+            }
+        },
+
+    },
+};
