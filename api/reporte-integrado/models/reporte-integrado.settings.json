@@ -21,6 +21,10 @@
       "plugin": "upload",
       "required": true
     },
+    "report_date": {
+      "required": true,
+      "type": "date"
+    },
     "integrated_report_data": {
       "via": "integrated_report",
       "collection": "reporte-integrado-data"

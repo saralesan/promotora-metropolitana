@@ -55,6 +55,7 @@ module.exports = {
                 strapi.query('reporte-integrado-data').create({
                     user_code: isNumber(element.user_code),
                     name: element.name,
+                    report_date: result.report_date,
                     branch_gct: element.branch_gct,
                     pdn_new: isNumber(element.pdn_new),
                     pdn_new_prev: isNumber(element.pdn_new_prev),
