@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notifications",
+  "info": {
+    "name": "Notificaciones",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "users": {
+      "plugin": "users-permissions",
+      "collection": "user"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "message": {
+      "type": "text",
+      "maxLength": 200
+    },
+    "education": {
+      "model": "educacion"
+    },
+    "faq_categories": {
+      "model": "categorias-preguntas-frecuentes"
+    },
+    "action": {
+      "type": "enumeration",
+      "enum": [
+        "Metas",
+        "Contactos",
+        "Educación",
+        "Preguntas_frequentes",
+        "Documentos",
+        "Chat"
+      ],
+      "default": "metas",
+      "required": true
+    }
+  }
+}
