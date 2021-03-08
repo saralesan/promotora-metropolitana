@@ -39,8 +39,8 @@
         "Documentos",
         "Chat"
       ],
-      "default": "metas",
-      "required": true
+      "default": "Metas",
+      "required": false
     }
   }
 }
