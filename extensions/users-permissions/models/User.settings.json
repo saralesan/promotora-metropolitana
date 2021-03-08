@@ -101,6 +101,13 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "device_token": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "date",
+      "required": false
     }
   }
 }
