@@ -32,23 +32,9 @@ module.exports = {
             if (data.action == "Educación" && data.education) {
                 actionArgument = data.education;
             }
-            else if (data.action == "Preguntas_frequentes" && data.faq_categories) {
+            else if (data.action == "Preguntas_frecuentes" && data.faq_categories) {
                 actionArgument = data.faq_categories;
             }
-
-            // creating request
-            var xhr = new XMLHttpRequest();
-            xhr.withCredentials = true;
-
-            xhr.addEventListener("readystatechange", function () {
-                if (this.readyState === 4) {
-                    //console.log(this.responseText);
-                }
-            });
-
-            xhr.open("POST", "https://fcm.googleapis.com/fcm/send");
-            xhr.setRequestHeader("Authorization", "key=AAAAKfPlAio:APA91bFOeKzrGX80keUc6t8sXiChA7ukBDpZElACSCqIWhkg4ahlchchMVhuO9pElU_88MQjyVT_s-1nARoIT5vGrgNDeFuFQhW9viF9-8hy_vcVu5f2uzc7jdJSSNI0DDu2xtq0pGJI");
-            xhr.setRequestHeader("Content-Type", "application/json");
 
             // Users Validation
             var devices = [];
@@ -59,6 +45,20 @@ module.exports = {
                     // console.log(user.device_token);
                     if (user.device_token != null) {
                         //devices.push(user.device_token);
+
+                        // creating request
+                        var xhr = new XMLHttpRequest();
+                        xhr.withCredentials = true;
+            
+                        xhr.addEventListener("readystatechange", function () {
+                            if (this.readyState === 4) {
+                                console.log(this.responseText);
+                            }
+                        });
+            
+                        xhr.open("POST", "https://fcm.googleapis.com/fcm/send");
+                        xhr.setRequestHeader("Authorization", "key=AAAAKfPlAio:APA91bFOeKzrGX80keUc6t8sXiChA7ukBDpZElACSCqIWhkg4ahlchchMVhuO9pElU_88MQjyVT_s-1nARoIT5vGrgNDeFuFQhW9viF9-8hy_vcVu5f2uzc7jdJSSNI0DDu2xtq0pGJI");
+                        xhr.setRequestHeader("Content-Type", "application/json");
                         var notificationData = notificationRequest(result.title, result.message, user.device_token, data.action, actionArgument);
                         xhr.send(notificationData);
                         console.log(xhr.responseText);
@@ -73,6 +73,20 @@ module.exports = {
                     if (user.device_token != null) {
                         // console.log("¡Sí! " + user.device_token);
                         // devices.push(user.device_token);
+
+                        // creating request
+                        var xhr = new XMLHttpRequest();
+                        xhr.withCredentials = true;
+            
+                        xhr.addEventListener("readystatechange", function () {
+                            if (this.readyState === 4) {
+                                console.log(this.responseText);
+                            }
+                        });
+            
+                        xhr.open("POST", "https://fcm.googleapis.com/fcm/send");
+                        xhr.setRequestHeader("Authorization", "key=AAAAKfPlAio:APA91bFOeKzrGX80keUc6t8sXiChA7ukBDpZElACSCqIWhkg4ahlchchMVhuO9pElU_88MQjyVT_s-1nARoIT5vGrgNDeFuFQhW9viF9-8hy_vcVu5f2uzc7jdJSSNI0DDu2xtq0pGJI");
+                        xhr.setRequestHeader("Content-Type", "application/json");
                         var notificationData = notificationRequest(result.title, result.message, user.device_token, data.action, actionArgument);
                         xhr.send(notificationData);
                         console.log(xhr.responseText);
