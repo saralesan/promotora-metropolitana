@@ -6,7 +6,13 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
  * to customize this model
  */
 
-function notificationRequest(title, message, deviceToken, action, actionArgument) {
+function notificationRequest(title, message, deviceToken, action, actionArgument, name, sale) {
+    title = title && name != null ? title.replace(/%NOMBRE%/g, name) : title;
+    message = message && name != null ? message.replace(/%NOMBRE%/g, name) : message;
+
+    title = title && sale != null ? title.replace(/%VENTAS%/g, sale) : title;
+    message = message && sale != null ? message.replace(/%VENTAS%/g, sale) : message;
+
     var notificationData = JSON.stringify({
         "notification": {
             "title": title,
@@ -28,6 +34,13 @@ function notificationRequest(title, message, deviceToken, action, actionArgument
 module.exports = {
     lifecycles: {
         async  afterCreate(result, data) {
+            // Current month
+            var today = new Date();
+            var mm = String(today.getMonth() + 1).padStart(2, '0');
+            var yyyy = today.getFullYear();
+            today = yyyy + '-' + mm + '-01';
+            
+            // Actions
             var actionArgument = 0;
             if (data.action == "Educación" && data.education) {
                 actionArgument = data.education;
@@ -38,59 +51,74 @@ module.exports = {
 
             // Users Validation
             var devices = [];
-            if (Object.keys(result.users).length) { // Users
+            if (Object.keys(result.users).length) { // Has Users
                 console.log("Has users");
-                
-                Object.values(result.users).forEach(function(user){
-                    // console.log(user.device_token);
-                    if (user.device_token != null) {
-                        //devices.push(user.device_token);
 
-                        // creating request
-                        var xhr = new XMLHttpRequest();
-                        xhr.withCredentials = true;
-            
-                        xhr.addEventListener("readystatechange", function () {
-                            if (this.readyState === 4) {
-                                console.log(this.responseText);
-                            }
-                        });
-            
-                        xhr.open("POST", "https://fcm.googleapis.com/fcm/send");
-                        xhr.setRequestHeader("Authorization", "key=AAAAKfPlAio:APA91bFOeKzrGX80keUc6t8sXiChA7ukBDpZElACSCqIWhkg4ahlchchMVhuO9pElU_88MQjyVT_s-1nARoIT5vGrgNDeFuFQhW9viF9-8hy_vcVu5f2uzc7jdJSSNI0DDu2xtq0pGJI");
-                        xhr.setRequestHeader("Content-Type", "application/json");
-                        var notificationData = notificationRequest(result.title, result.message, user.device_token, data.action, actionArgument);
-                        xhr.send(notificationData);
-                        console.log(xhr.responseText);
-                    }
+                var usersID = result.users.map(function (users) {
+                    return users.id;
+                });
+
+                var usersPromise = strapi.query('user', 'users-permissions').find({ id_nin: [1]}, ['sale']);
+                usersPromise.then((users) => {
+                    users.forEach(user => {
+                        if (user.device_token != null && usersID.includes(user.id)) {
+
+                            // creating request
+                            var xhr = new XMLHttpRequest();
+                            xhr.withCredentials = true;
+                
+                            xhr.addEventListener("readystatechange", function () {
+                                if (this.readyState === 4) {
+                                    console.log(this.responseText);
+                                }
+                            });
+
+                            // User sales
+                            user.salesCount = 0;
+                            user.sale.forEach(userSales => {
+                                userSales.date >= today ? user.salesCount++ : user.salesCount;
+                            });
+
+                            xhr.open("POST", "https://fcm.googleapis.com/fcm/send");
+                            xhr.setRequestHeader("Authorization", "key=AAAAKfPlAio:APA91bFOeKzrGX80keUc6t8sXiChA7ukBDpZElACSCqIWhkg4ahlchchMVhuO9pElU_88MQjyVT_s-1nARoIT5vGrgNDeFuFQhW9viF9-8hy_vcVu5f2uzc7jdJSSNI0DDu2xtq0pGJI");
+                            xhr.setRequestHeader("Content-Type", "application/json");
+                            var notificationData = notificationRequest(result.title, result.message, user.device_token, data.action, actionArgument, user.name, user.salesCount);
+                            xhr.send(notificationData);
+                            console.log(xhr.responseText);
+                        }
+                    });
                 });
             }
             else { // NO Users
                 console.log("NO users");
-                var usersPromise = strapi.query('user', 'users-permissions').find();
+                var usersPromise = strapi.query('user', 'users-permissions').find({ id_nin: [1]}, ['sale']);
                 usersPromise.then((users) => {
                     users.forEach(user => {
-                    if (user.device_token != null) {
-                        // console.log("¡Sí! " + user.device_token);
-                        // devices.push(user.device_token);
+                        if (user.device_token != null) {
 
-                        // creating request
-                        var xhr = new XMLHttpRequest();
-                        xhr.withCredentials = true;
-            
-                        xhr.addEventListener("readystatechange", function () {
-                            if (this.readyState === 4) {
-                                console.log(this.responseText);
-                            }
-                        });
-            
-                        xhr.open("POST", "https://fcm.googleapis.com/fcm/send");
-                        xhr.setRequestHeader("Authorization", "key=AAAAKfPlAio:APA91bFOeKzrGX80keUc6t8sXiChA7ukBDpZElACSCqIWhkg4ahlchchMVhuO9pElU_88MQjyVT_s-1nARoIT5vGrgNDeFuFQhW9viF9-8hy_vcVu5f2uzc7jdJSSNI0DDu2xtq0pGJI");
-                        xhr.setRequestHeader("Content-Type", "application/json");
-                        var notificationData = notificationRequest(result.title, result.message, user.device_token, data.action, actionArgument);
-                        xhr.send(notificationData);
-                        console.log(xhr.responseText);
-                    }
+                            // creating request
+                            var xhr = new XMLHttpRequest();
+                            xhr.withCredentials = true;
+                
+                            xhr.addEventListener("readystatechange", function () {
+                                if (this.readyState === 4) {
+                                    console.log(this.responseText);
+                                }
+                            });
+
+                            // User sales
+                            user.salesCount = 0;
+                            user.sale.forEach(userSales => {
+                                userSales.date >= today ? user.salesCount++ : user.salesCount;
+                            });
+
+                            xhr.open("POST", "https://fcm.googleapis.com/fcm/send");
+                            xhr.setRequestHeader("Authorization", "key=AAAAKfPlAio:APA91bFOeKzrGX80keUc6t8sXiChA7ukBDpZElACSCqIWhkg4ahlchchMVhuO9pElU_88MQjyVT_s-1nARoIT5vGrgNDeFuFQhW9viF9-8hy_vcVu5f2uzc7jdJSSNI0DDu2xtq0pGJI");
+                            xhr.setRequestHeader("Content-Type", "application/json");
+                            var notificationData = notificationRequest(result.title, result.message, user.device_token, data.action, actionArgument, user.name, user.salesCount);
+                            xhr.send(notificationData);
+                            console.log(xhr.responseText);
+                        }
                     });
                 });
             }
