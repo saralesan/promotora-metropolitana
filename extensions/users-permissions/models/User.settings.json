@@ -108,6 +108,11 @@
     "birthday": {
       "type": "date",
       "required": false
+    },
+    "is_employee": {
+      "type": "boolean",
+      "default": true,
+      "required": true
     }
   }
 }
