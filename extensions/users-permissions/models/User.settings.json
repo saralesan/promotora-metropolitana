@@ -90,8 +90,8 @@
       "via": "user_id"
     },
     "sale": {
-      "collection": "ventas",
-      "via": "user"
+      "via": "user",
+      "collection": "ventas"
     },
     "photo": {
       "model": "file",
@@ -113,6 +113,10 @@
       "type": "boolean",
       "default": true,
       "required": true
+    },
+    "cartera": {
+      "via": "agent",
+      "collection": "cartera-data"
     }
   }
 }

@@ -35,6 +35,9 @@
     "pdn_canc": {
       "type": "biginteger"
     },
+    "pdn_monthly": {
+      "type": "biginteger"
+    },
     "pct_effect": {
       "type": "float"
     },

@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "sales",
   "info": {
-    "name": "Ventas"
+    "name": "Ventas",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -33,6 +34,10 @@
       "plugin": "users-permissions",
       "model": "user",
       "via": "sale"
+    },
+    "category": {
+      "via": "sales",
+      "model": "ventas-categorias"
     }
   }
 }

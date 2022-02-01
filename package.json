@@ -21,8 +21,10 @@
     "strapi-plugin-email": "3.3.4",
     "strapi-plugin-upload": "3.3.4",
     "strapi-plugin-users-permissions": "3.3.4",
+    "strapi-provider-email-sendinblue": "^1.0.6",
     "strapi-utils": "3.3.4",
-    "xlsx": "^0.16.9"
+    "xlsx": "^0.16.9",
+    "xmlhttprequest": "^1.8.0"
   },
   "author": {
     "name": "Sara Leandra Sanchez"

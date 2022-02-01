@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/cartera-data",
+      "handler": "cartera-data.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cartera-data/count",
+      "handler": "cartera-data.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cartera-data/:id",
+      "handler": "cartera-data.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/cartera-data",
+      "handler": "cartera-data.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/cartera-data/:id",
+      "handler": "cartera-data.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/cartera-data/:id",
+      "handler": "cartera-data.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
