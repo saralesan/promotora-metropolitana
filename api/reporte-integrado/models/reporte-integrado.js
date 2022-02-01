@@ -7,18 +7,18 @@
 
 function isNumber(value) {
     try {
-        if(isNaN(value)){
-            return(null);
+        if (isNaN(value)) {
+            return (null);
         }
-        else{
-            return(value);
+        else {
+            return (value);
         }
     } catch (error) {
-        return(null);
+        return (null);
     }
- }
+}
 
- function normalizeJson(data) {
+function normalizeJson(data) {
     for (let itemKey in data) {
         let item = data[itemKey];
         for (let key in item) {
@@ -32,7 +32,7 @@ function isNumber(value) {
 }
 module.exports = {
     lifecycles: {
-        async  afterCreate(result, data) {
+        async afterCreate(result, data) {
             var XLSX = require("xlsx");
 
             var fileURL = "/opt/promotora-metropolitana/public" + result.file['url'];
@@ -41,14 +41,15 @@ module.exports = {
             //var sheetsExcel = excelFile.SheetNames;
             var refSheet = excelFile.Sheets["HOJA DE VIDA TOTAL"]['!ref'].split(":");
 
-            let jsonData = XLSX.utils.sheet_to_json(excelFile.Sheets["HOJA DE VIDA TOTAL"], {range: 'A2:' + refSheet[1] , raw: true, defval:null});
+            let jsonData = XLSX.utils.sheet_to_json(excelFile.Sheets["HOJA DE VIDA TOTAL"], { range: 'A2:' + refSheet[1], raw: true, defval: null });
             //console.log(jsonData);
 
+<<<<<<< HEAD
             jsonData = normalizeJson(jsonData);
             //console.log(jsonData);
 
             // Filter Json Data
-            var newJsonData = jsonData.map(function(record){
+            var newJsonData = jsonData.map(function (record) {
                 return {
                     "user_code": record['AGENTE LIDER ACT'],
                     "name": record['NOMBRE ASESOR'],
@@ -61,6 +62,21 @@ module.exports = {
                     "pct_effect": record['% EFECT 1'],
                     "avg_prima": record['PRIMAPROMN 1'],
                     "goal": record['META'],
+=======
+            // Filter Json Data
+            var newJsonData = jsonData.map(function(record){
+                return {
+                    "user_code": record['Agente Lider Act'],
+                    "name": record.Columna1,
+                    "branch_gct": record['Ramo GCT'],
+                    "pdn_new": record[' Pdn Nueva '],
+                    "pdn_new_prev": record[' Pdn Nueva año ant '],
+                    "pdn_total": record[' Pdn Total '],
+                    "pdn_canc": record[' Pdn Canc '],
+                    "pct_effect": record['% Efect 1'],
+                    "avg_prima": record[' PrimaPromN 1 '],
+                    "goal": record.Meta, // Pending Column
+>>>>>>> 4320ed3921731418be131be14641b087c2b318a9
                 };
             });
             //console.log(newJsonData);
@@ -77,7 +93,10 @@ module.exports = {
                     pdn_new_prev: isNumber(element.pdn_new_prev),
                     pdn_total: isNumber(element.pdn_total),
                     pdn_canc: isNumber(element.pdn_canc),
+<<<<<<< HEAD
                     pdn_monthly: isNumber(element.pdn_monthly),
+=======
+>>>>>>> 4320ed3921731418be131be14641b087c2b318a9
                     pct_effect: isNumber(element.pct_effect),
                     avg_prima: isNumber(element.avg_prima),
                     goal: isNumber(element.goal),

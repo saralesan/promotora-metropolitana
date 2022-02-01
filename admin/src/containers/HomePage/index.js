@@ -47,18 +47,18 @@ const HomePage = ({ history: { push } }) => {
   const username = get(auth.getUserInfo(), 'firstname', '');
   const linkProps = hasAlreadyCreatedContentTypes
     ? {
-        id: 'app.components.HomePage.button.blog',
-        href: 'https://strapi.io/blog/',
-        onClick: () => {},
-        type: 'blog',
-        target: '_blank',
-      }
+      id: 'app.components.HomePage.button.blog',
+      href: 'https://strapi.io/blog/',
+      onClick: () => { },
+      type: 'blog',
+      target: '_blank',
+    }
     : {
-        id: 'app.components.HomePage.create',
-        href: '',
-        onClick: handleClick,
-        type: 'documentation',
-      };
+      id: 'app.components.HomePage.create',
+      href: '',
+      onClick: handleClick,
+      type: 'documentation',
+    };
 
   return (
     <>
@@ -69,18 +69,18 @@ const HomePage = ({ history: { push } }) => {
         <div className="row">
           <div className="col-lg-8 col-md-12">
             <Block>
-                <Wave />
-                <FormattedMessage
-                    id={headerId}
-                    values={{
-                    name: upperFirst(username),
-                    }}
-                >
-                    {msg => <h2 id="mainHeader" style={{marginTop: 25,}}>{msg}</h2>}
-                </FormattedMessage>
-                
-                <p style={{marginTop: 25,}}>
-                    Bienvenid@ al panel de administración de tu App <b>Mi Promotora</b>. A tu izquierda encontraras el menú de navegación desde el cual podras agregar, editar y eliminar el contenido que desees que se refleje en tu aplicación</p>
+              <Wave />
+              <FormattedMessage
+                id={headerId}
+                values={{
+                  name: upperFirst(username),
+                }}
+              >
+                {msg => <h2 id="mainHeader" style={{ marginTop: 25, }}>{msg}</h2>}
+              </FormattedMessage>
+
+              <p style={{ marginTop: 25, }}>
+                Bienvenid@ al panel de administración de tu App <b>Mi Promotora</b>. A tu izquierda encontraras el menú de navegación desde el cual podras agregar, editar y eliminar el contenido que desees que se refleje en tu aplicación</p>
             </Block>
           </div>
 

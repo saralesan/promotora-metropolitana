@@ -8,7 +8,7 @@
 module.exports = {
 
   lifecycles: {
-    async  afterCreate(result, data) {
+    async afterCreate(result, data) {
       console.log("ATAC created... ");
       console.log(result);
 

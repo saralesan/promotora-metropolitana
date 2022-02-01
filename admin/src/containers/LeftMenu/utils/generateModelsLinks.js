@@ -8,13 +8,13 @@ const generateLinks = links => {
                 icon: 'circle',
                 destination: `/plugins/content-manager/${link.schema.kind}/${link.uid}`,
                 isDisplayed: false,
-                label: 
+                label:
                     link.schema && link.schema.info.displayName
-                    ? link.schema.info.displayName
-                    : link.label,
+                        ? link.schema.info.displayName
+                        : link.label,
                 permissions: [
-                    { action: 'plugins::content-manager.explorer.create', subject: link.uid }, 
-                    { action: 'plugins::content-manager.explorer.read', subject: link.uid }, 
+                    { action: 'plugins::content-manager.explorer.create', subject: link.uid },
+                    { action: 'plugins::content-manager.explorer.read', subject: link.uid },
                     { action: 'plugins::content-manager.explorer.update', subject: link.uid },
                 ],
             };
