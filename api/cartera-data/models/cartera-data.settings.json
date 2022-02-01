@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolio_data",
+  "info": {
+    "name": "Cartera Data",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "customer_name": {
+      "type": "string",
+      "required": false
+    },
+    "insurance": {
+      "type": "string"
+    },
+    "policy": {
+      "type": "string"
+    },
+    "bill": {
+      "type": "string"
+    },
+    "balance": {
+      "type": "biginteger"
+    },
+    "phone": {
+      "type": "string",
+      "required": false
+    },
+    "customer_id": {
+      "type": "string"
+    },
+    "contacted": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "agent": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "cartera"
+    },
+    "cartera": {
+      "model": "cartera",
+      "via": "cartera_data"
+    }
+  }
+}

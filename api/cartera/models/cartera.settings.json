@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolio",
+  "info": {
+    "name": "Cartera"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "file": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "cartera_data": {
+      "via": "cartera",
+      "collection": "cartera-data"
+    }
+  }
+}

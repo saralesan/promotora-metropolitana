@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "atac_request",
+  "info": {
+    "name": "ATAC - Solicitudes",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "service": {
+      "type": "string",
+      "required": true
+    },
+    "interests": {
+      "type": "text",
+      "required": true
+    },
+    "user_id": {
+      "via": "atac_solicitudes",
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

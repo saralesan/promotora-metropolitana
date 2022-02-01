@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "education",
+  "info": {
+    "name": "Educación",
+    "displayName": "Educación",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "module": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "video_url": {
+      "type": "string"
+    },
+    "podcast_file": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "document_files": {
+      "type": "component",
+      "repeatable": true,
+      "component": "subcategory.educacion-documentos"
+    },
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}

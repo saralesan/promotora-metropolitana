@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sales",
+  "info": {
+    "name": "Ventas",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date"
+    },
+    "value": {
+      "type": "biginteger",
+      "required": true
+    },
+    "client": {
+      "type": "string",
+      "required": true
+    },
+    "id_client": {
+      "type": "biginteger",
+      "required": true
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "sale"
+    },
+    "category": {
+      "via": "sales",
+      "model": "ventas-categorias"
+    }
+  }
+}

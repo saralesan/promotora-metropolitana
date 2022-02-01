@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_subcategory_atac_categories",
+  "info": {
+    "name": "ATAC Categorías",
+    "icon": "angle-right",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "atac_category": {
+      "type": "string"
+    },
+    "atac_subcategories": {
+      "type": "component",
+      "repeatable": true,
+      "component": "subcategory.atac-subcategory",
+      "required": true
+    }
+  }
+}

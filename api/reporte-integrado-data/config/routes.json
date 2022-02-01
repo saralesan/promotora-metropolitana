@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/reporte-integrado-data/ranking",
+      "handler": "reporte-integrado-data.findRanking",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/reporte-integrado-data",
+      "handler": "reporte-integrado-data.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/reporte-integrado-data/count",
+      "handler": "reporte-integrado-data.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/reporte-integrado-data/:id",
+      "handler": "reporte-integrado-data.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/reporte-integrado-data",
+      "handler": "reporte-integrado-data.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/reporte-integrado-data/:id",
+      "handler": "reporte-integrado-data.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/reporte-integrado-data/:id",
+      "handler": "reporte-integrado-data.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

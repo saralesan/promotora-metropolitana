@@ -1,0 +1,33 @@
+{
+  "name": "strapi-plugin-reporte-ventas",
+  "version": "0.0.0",
+  "description": "Descarga el reporte de las ventas",
+  "strapi": {
+    "name": "Reporte Ventas",
+    "icon": "download",
+    "description": "Genera reporte de ventas"
+  },
+  "author": {
+    "name": "Sergio Torres",
+    "email": "sdtorresl@innovaciones.co",
+    "url": "https://innovaciones.co"
+  },
+  "maintainers": [
+    {
+      "name": "Sergio Torres",
+      "email": "sdtorresl@innovaciones.co",
+      "url": "https://innovaciones.co"
+    }
+  ],
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "reactstrap": "^9.0.1"
+  }
+}

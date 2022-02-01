@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "integrated_report",
+  "info": {
+    "name": "Reporte Integrado",
+    "displayName": "Reporte Integrado",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "file": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "report_date": {
+      "required": true,
+      "type": "date"
+    },
+    "integrated_report_data": {
+      "via": "integrated_report",
+      "collection": "reporte-integrado-data"
+    }
+  }
+}
